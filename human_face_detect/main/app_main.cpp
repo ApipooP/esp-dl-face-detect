@@ -5,10 +5,10 @@
 #include <string>
 
 // Select only one image header file. Uncomment to active.
-// #include "mona.hpp"
+#include "mona.hpp"
 // #include "vanGogh.hpp"
 // #include "einstein.hpp"
-#include "people.hpp"
+// #include "people.hpp"
 // #include "man.hpp"
 // #include "woman.hpp"
 
