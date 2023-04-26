@@ -6,8 +6,11 @@
 
 // Select only one image header file. Uncomment to active.
 // #include "mona.hpp"
-#include "vanGogh.hpp"
-// #include "people.hpp"
+// #include "vanGogh.hpp"
+// #include "einstein.hpp"
+#include "people.hpp"
+// #include "man.hpp"
+// #include "woman.hpp"
 
 
 void inferenceOneStage(bool showLatency = true) {
@@ -37,7 +40,7 @@ void inferenceOneStage(bool showLatency = true) {
 void inferenceTwoStage(bool showLatency = true) {
     dl::tool::Latency latency;
     HumanFaceDetectMSR01 s1(0.1F, 0.5F, 10, 0.2F);
-    HumanFaceDetectMNP01 s2(0.5F, 0.3F, 5);
+    HumanFaceDetectMNP01 s2(0.5F, 0.3F, 10);
 
     if (showLatency) latency.start();
     std::list<dl::detect::result_t>& candidates = s1.infer((uint8_t*)IMAGE_ELEMENT, { IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNEL });
@@ -71,7 +74,7 @@ void inferenceTwoStage(bool showLatency = true) {
         printf("    mouth left: (%3d, %3d), ", prediction->keypoint[2], prediction->keypoint[3]);
         printf("mouth right: (%3d, %3d)\n", prediction->keypoint[8], prediction->keypoint[9]);
     }
-    printf("display_image.py arguments:\n -b \"(%s)\" -k \"(%s)\"\n\n", boxArgs.c_str(), keypointsArgs.c_str());
+    printf("display_image.py arguments:\n-b \"(%s)\" -k \"(%s)\"\n\n", boxArgs.c_str(), keypointsArgs.c_str());
 }
 
 extern "C" void app_main(void) {
