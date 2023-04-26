@@ -7,3 +7,5 @@ bin/
 __pycache__/
 mnist_calib.pickle
 mnist_model_example_optimized.onnx
+tools/image_tool/*.jpg
+tools/image_tool/*.png
